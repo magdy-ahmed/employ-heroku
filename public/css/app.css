@@ -1,0 +1,267 @@
+@charset "UTF-8";
+i {
+  margin: auto;
+}
+
+body {
+  margin: 10px;
+}
+
+.form-group {
+  color: #444;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-25 {
+  font-size: 25px;
+}
+
+.font-bolder {
+  font-weight: bolder;
+}
+
+.app-laravel {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  direction: rtl;
+}
+
+.app-danger {
+  color: #660d0d;
+}
+
+.app-primary {
+  color: #0174df;
+}
+
+.app-sucess {
+  color: #40be46;
+}
+
+a, a:hover {
+  color: unset;
+}
+
+nav {
+  direction: rtl;
+}
+
+.navbar-nav {
+  padding-right: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-expand-md .navbar-nav {
+    margin-right: 0px !important;
+  }
+}
+.modal-header .close {
+  padding: 1rem 1rem;
+  margin: -1rem auto -1rem -1rem;
+}
+
+.fa-exclamation-triangle {
+  color: #660d0d;
+}
+
+.modal-body {
+  text-align: right;
+}
+
+.input-group:not(.has-validation) > .form-control:not(:last-child) {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+}
+
+.input-group > .input-group-prepend:not(:first-child) > .btn {
+  border-top-right-radius: unset;
+  border-bottom-right-radius: unset;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.col-xl, .col-xl-auto, .col-xl-12,
+.col-xl-11, .col-xl-10, .col-xl-9,
+.col-xl-8, .col-xl-7, .col-xl-6,
+.col-xl-5, .col-xl-4, .col-xl-3,
+.col-xl-2, .col-xl-1, .col-lg,
+.col-lg-auto, .col-lg-12,
+.col-lg-11, .col-lg-10, .col-lg-9,
+.col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5,
+.col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1,
+.col-md, .col-md-auto, .col-md-12, .col-md-11,
+.col-md-10, .col-md-9, .col-md-8, .col-md-7,
+.col-md-6, .col-md-5, .col-md-4, .col-md-3, .col-md-2,
+.col-md-1, .col-sm, .col-sm-auto, .col-sm-12, .col-sm-11,
+.col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6,
+.col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1,
+.col, .col-auto, .col-12, .col-11, .col-10, .col-9,
+.col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2,
+.col-1 {
+  padding-right: unset;
+  padding-left: unset;
+  text-align: right;
+}
+
+.simple-tags {
+  margin: unset;
+  border: 1px solid #cdcdcd;
+  line-height: unset;
+}
+
+.simple-tags ul li {
+  background-color: #1b1c1c;
+}
+
+::-webkit-file-upload-button {
+  display: none;
+}
+
+.app-input-file {
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  padding: 8px;
+  border-radius: 3px;
+  font-weight: bolder;
+  color: #a36a6a;
+}
+
+.app-label {
+  width: 100%;
+  text-align: right;
+  font-weight: bolder;
+  font-size: 20px;
+  color: #616161;
+  margin-right: 12px;
+}
+.app-label span {
+  font-size: 13px;
+  margin-right: 10px;
+  font-weight: unset;
+  color: #a36a6a;
+}
+
+.app-header {
+  text-align: center;
+  font-size: 23px;
+  font-weight: bolder;
+  text-shadow: 1px 0px 1px #4dc0b5;
+}
+
+.submit {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+#custom-simple-tags > ul > li:first-child {
+  display: none;
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.admin-users {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  overflow-y: auto;
+}
+.admin-users a:hover {
+  color: #f52b2b;
+}
+.admin-users .header-delete-user {
+  font-size: 25px;
+  font-weight: bolder;
+}
+.admin-users .body-delete-user {
+  white-space: initial;
+  font-weight: bolder;
+  color: #616161;
+}
+
+.dropdown-item.category:hover {
+  background-color: #f7f7f7;
+  color: #000000 !important;
+}
+
+#header-catogry-routes {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-bottom: 23px;
+  color: #4dc0b5;
+  text-shadow: -1px -1px 1px black;
+}
+
+@media only screen and (min-width: 768px) {
+  .app-profile .row > div:first-child {
+    padding-left: 25px;
+  }
+}
+.app-profile > div:first-child {
+  margin: auto;
+  padding-bottom: 25px;
+  text-align: center;
+}
+.app-profile .card-body a:hover {
+  text-decoration: none;
+  color: #0174df;
+}
+.app-profile .card-body i {
+  color: #0174df;
+  padding: 5px;
+}
+.app-profile .app-details {
+  margin-bottom: 25px;
+}
+.app-profile .app-details .card-body {
+  padding-right: 10px;
+  padding-left: 0;
+}
+.app-profile .app-details .card-body div span:first-child {
+  font-weight: bolder;
+}
+.app-profile .app-details .card-body div span:last-child {
+  font-weight: bold;
+}
+.app-profile .app-details .card-header a:hover {
+  text-decoration: none;
+  color: #0174df;
+}
+.app-profile .app-details .card-header i {
+  color: #0174df;
+  padding: 5px;
+}
+.app-profile .app-details img {
+  cursor: pointer;
+  margin-right: -10px;
+  border: 0px solid black;
+  border-radius: 50%;
+  box-shadow: 1px 2px 1px #00000085;
+}
+.app-profile .app-details .label-img:hover:after {
+  content: "تغيير الصورة";
+  position: absolute;
+  /* top: 0; */
+  right: 49px;
+  bottom: 18px;
+  background: white;
+  border: 1px dashed #0000ff30;
+  border-radius: 15px;
+  padding-right: 5px;
+  padding-left: 5px;
+  padding-bottom: 2px;
+  background-color: #616161;
+  color: white;
+  left: -55px;
+}

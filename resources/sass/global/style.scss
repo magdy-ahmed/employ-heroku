@@ -1,0 +1,140 @@
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.font-25{
+    font-size: 25px;
+}
+.font-bolder{
+    font-weight: bolder;
+}
+.app-laravel{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    direction: rtl;
+}
+.app-danger{
+    color:$colorDanger;
+}
+.app-primary{
+    color:$colorPrimary;
+}
+.app-sucess{
+    color:$colorSuccess;
+}
+a,a:hover{
+    color: unset;
+}
+
+    nav {direction: rtl;}
+    .navbar-nav{
+        padding-right: 1rem;
+    }
+    .navbar-collapse{
+
+    }
+//* right to left bootstrap
+@media screen and  (min-width: 768px){
+    .navbar-expand-md .navbar-nav {
+        margin-right: 0px !important;
+    }
+}
+.modal-header .close {
+    padding: 1rem 1rem;
+    margin: -1rem auto -1rem -1rem;
+}
+.fa-exclamation-triangle{
+    color: $colorDanger;
+}
+.modal-body{
+    text-align: right;
+}
+.input-group:not(.has-validation) > .form-control:not(:last-child) {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: unset;
+    border-bottom-left-radius:unset;
+}
+.input-group > .input-group-prepend:not(:first-child) > .btn{
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius:0.25rem;
+}
+.col-xl, .col-xl-auto, .col-xl-12,
+.col-xl-11, .col-xl-10, .col-xl-9,
+.col-xl-8, .col-xl-7, .col-xl-6,
+.col-xl-5, .col-xl-4, .col-xl-3,
+.col-xl-2, .col-xl-1, .col-lg,
+.col-lg-auto, .col-lg-12,
+.col-lg-11, .col-lg-10, .col-lg-9,
+.col-lg-8, .col-lg-7, .col-lg-6, .col-lg-5,
+.col-lg-4, .col-lg-3, .col-lg-2, .col-lg-1,
+.col-md, .col-md-auto, .col-md-12, .col-md-11,
+.col-md-10, .col-md-9, .col-md-8, .col-md-7,
+.col-md-6, .col-md-5, .col-md-4, .col-md-3, .col-md-2,
+.col-md-1, .col-sm, .col-sm-auto, .col-sm-12, .col-sm-11,
+.col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6,
+.col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1,
+.col, .col-auto, .col-12, .col-11, .col-10, .col-9,
+.col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2,
+.col-1{
+    padding-right: unset;
+    padding-left: unset;
+    text-align: right;
+}
+// my custom style tags
+.simple-tags{
+    margin: unset;
+    border: 1px solid $colorborder;
+    line-height: unset;
+
+}
+.simple-tags ul li {
+    background-color: #1b1c1c;
+}
+// hiden shows file
+::-webkit-file-upload-button {
+    display: none;
+}
+.app-input-file{
+    width: 100%;
+    border: 1px solid $colorborder;
+    padding: 8px;
+    border-radius: 3px;
+    font-weight: bolder;
+    color: $brown;
+}
+.app-label{
+    width: 100%;
+    text-align: right;
+    font-weight: bolder;
+    font-size: 20px;
+    color: $colorMedium;
+    margin-right: 12px;
+    span{
+        font-size: 13px;
+        margin-right: 10px;
+        font-weight: unset;
+        color:$brown;
+    }
+}
+.app-header{
+    text-align: center;
+    font-size: 23px;
+    font-weight: bolder;
+    text-shadow: 1px 0px 1px $teal;
+
+}
+.submit{
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+#custom-simple-tags > ul >li:first-child{
+    display: none;
+}
+.bolder{
+    font-weight: bolder;
+}

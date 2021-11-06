@@ -1,0 +1,19 @@
+.admin-users{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: auto;
+    a:hover{
+        color:$colorDangerLite;
+    }
+    .header-delete-user{
+        font-size: 25px;
+        font-weight: bolder;
+
+    }
+    .body-delete-user{
+        white-space: initial;
+        font-weight: bolder;
+        color:$colorMedium;
+    }
+}

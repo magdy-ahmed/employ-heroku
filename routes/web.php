@@ -38,3 +38,17 @@ Route::group(['middleware' => 'auth'],function() {
 
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'],function() {
+    Route::get('/profile',[App\Http\Controllers\Profile\profileController::class,'index'])->name('profile.index');
+    Route::get('/profile-edit',[App\Http\Controllers\Profile\profileController::class,'edit'])->name('profile.edit');
+    Route::put('/profile',[App\Http\Controllers\Profile\profileController::class,'update'])->name('profile.update');
+    Route::put('/profile-edit-photo',[App\Http\Controllers\Profile\profileController::class,'updateImg'])->name('profile.updateImg');
+
+});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/clear-cache', function() {
+    Artisan::call('config:cache');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    return "All cache cleared";
+});

@@ -8,11 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Permissions\HasPermissions;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,HasPermissions;
-
+    use HasApiTokens, HasFactory, Notifiable,HasPermissions,SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'phone',
         'password',
         'profile_id'
 
@@ -48,7 +48,20 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsToMany(Role::class,'users_roles');
     }
+
     public function profile(){
-        return $this->belongsTo(Profile::class,'id');
+        return $this->hasOne(Profile::class,'user_id','id');
+    }
+    public function places(){
+        return $this->hasMany(Place::class,'user_id','id');
+    }
+    public function services(){
+        return $this->hasMany(Service::class,'user_id','id');
+    }
+    public function tags(){
+        return $this->belongsToMany(Tag::class,'user_tag');
+    }
+    public function affiliates(){
+        return $this->hasMany(Affiliate::class,'user_id','id');
     }
 }

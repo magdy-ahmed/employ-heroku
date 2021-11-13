@@ -34,6 +34,17 @@ a,a:hover{
     .navbar-collapse{
 
     }
+.dropdown-item{
+    text-align: right !important;
+}
+.app-absolute-lt{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.app-border-l{
+    border-left: 1px solid #ccc !important;
+}
 //* right to left bootstrap
 @media screen and  (min-width: 768px){
     .navbar-expand-md .navbar-nav {
@@ -41,8 +52,8 @@ a,a:hover{
     }
 }
 .modal-header .close {
-    padding: 1rem 1rem;
-    margin: -1rem auto -1rem -1rem;
+    padding: unset !important;
+    margin: unset !important;
 }
 .fa-exclamation-triangle{
     color: $colorDanger;
@@ -114,10 +125,12 @@ a,a:hover{
     color: $colorMedium;
     margin-right: 12px;
     span{
-        font-size: 13px;
         margin-right: 10px;
         font-weight: unset;
         color:$brown;
+    }
+    &.text-center{
+        margin-right: unset;
     }
 }
 .app-header{
@@ -127,14 +140,135 @@ a,a:hover{
     text-shadow: 1px 0px 1px $teal;
 
 }
-.submit{
-    display: block;
+.submit , .app-submit{
+    display: block !important;
     margin: auto;
     width: 50%;
+
 }
 #custom-simple-tags > ul >li:first-child{
     display: none;
 }
 .bolder{
     font-weight: bolder;
+}
+.app-card{
+    padding: 10px;
+    min-width: unset;
+    margin: unset;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    .app-card-header{
+        display: inline-block;
+        width: 180px;
+        padding-right: 16px;
+        margin-right: 3%;
+        font-weight: bolder;
+        color: #2a2727;
+        border-radius: 10px;
+
+    }
+
+}
+.app-unset.card-body{
+    padding: 2px;
+}
+.app-tringal{
+    position: absolute;
+    left: 0px;
+    width: 0px;
+    height: 0;
+    border-bottom: 117px solid transparent;
+    /* border-top: 50px solid transparent; */
+    border-left: 113px solid $colorMedium;
+    margin-top: -3px;
+}
+.app-tringal-right{
+
+    position: absolute;
+    right: 0px;
+    width: 0px;
+    height: 0;
+    border-bottom: 117px solid transparent;
+    border-right: 113px solid #616161;
+    margin-top: -3px;
+}
+.discount{
+    text-decoration: line-through;
+}
+.app-absolute-lb{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+}
+    .list-group {
+        padding-inline-start: 0px;
+    }
+.list-group-item {
+    padding: 0px !important;
+}
+.app-empty{
+    margin: 0;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    font-size: 30px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 3px black;
+}
+.app-shadow-3{
+    text-shadow: 0 0 3px black;
+}
+.app-w{
+    width: 140px;
+}
+.profile-img-card{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 0 0 3px black;
+    vertical-align: middle;
+    border-style: none;
+    border: 0px solid;
+    border-radius: 50%;
+}
+.app-list-child-c{
+    border-left: 1px solid #ccc ;
+    padding:10px !important;
+}
+.breadcrumb{
+    direction: ltr;
+    justify-content: end;
+}
+.app-un-decoration{
+text-decoration: none !important ;
+}
+@media only screen and(max-width:768px) {
+    .app-label{
+
+        font-size: 15px;
+        span{
+            font-size: 10px;
+        }
+    }
+    .app-absolute-lb ,.app-absolute-lt {
+        position: relative;
+    }
+    .app-list.list-group-horizontal{
+        flex-direction: column !important;
+        .app-list-child{
+            justify-content: center;
+            img{
+                display: block;
+                margin: auto;
+            }
+        }
+
+    }
 }

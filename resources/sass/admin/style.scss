@@ -22,7 +22,12 @@
             }
         }
     }
+    .app-label{
 
+        span{
+            font-size: 13px;
+        }
+    }
 
         & > div:first-child{
             margin: auto;
@@ -72,21 +77,50 @@
 
         }
         .label-img:hover:after{
-            content: "تغيير الصورة";
-            position: absolute;
-            /* top: 0; */
-            right: 49px;
-            bottom: 18px;
-            background: white;
-            border: 1px dashed #0000ff30;
-            border-radius: 15px;
-            padding-right: 5px;
-            padding-left: 5px;
-            padding-bottom: 2px;
-            background-color: $colorMedium;
-            color: white;
-            left: -55px;
+            // content: "تغيير الصورة";
+            // position: absolute;
+            // /* top: 0; */
+            // right: 49px;
+            // bottom: 18px;
+            // background: white;
+            // border: 1px dashed #0000ff30;
+            // border-radius: 15px;
+            // padding-right: 5px;
+            // padding-left: 5px;
+            // padding-bottom: 2px;
+            // background-color: $colorMedium;
+            // color: white;
+            // left: -55px;
         }
 
     }
+}
+.card{
+    .delete{
+        position: absolute;
+        left: 12px;
+        margin-top: 10px;
+    }
+    .show{
+        position: absolute;
+        right: 12px;
+        margin-top: 10px;
+    }
+}
+.card-place{
+    a:hover{
+        text-decoration: none;
+    }
+}
+.app-home-service{
+    img{
+        width: 180px;
+        height: 180px;
+    }
+    .sellery{
+        &::after{
+            content: "جنية";
+        }
+    }
+
 }

@@ -17,7 +17,7 @@ class adminController extends Controller
         public function create()
         {
             //
-            return view('tags.create');
+            return abort(404);
 
 
         }
@@ -28,12 +28,12 @@ class adminController extends Controller
          * @param  \Illuminate\Http\Request  $request
          * @return \Illuminate\Http\Response
          */
-        public function store(TagRequest $request)
+        public function store(Request $request)
         {
             //
-            Tag::create($request->all());
+            // Tag::create($request->all());
             session()->flash('success','Creat Tag successfuly');
-            return redirect(route('tags.index'));
+            return abort(404);
         }
 
         /**
@@ -45,6 +45,7 @@ class adminController extends Controller
         public function show($id)
         {
             //
+            return abort(404);
         }
 
         /**
@@ -57,7 +58,7 @@ class adminController extends Controller
         {
             //
 
-            return view ('tags.create',compact('tag'));
+            return abort(404);
         }
 
         /**
@@ -67,14 +68,12 @@ class adminController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function update(TagRequest $request,Tag $tag)
+        public function update(TagRequest $request,$id)
         {
             //
-            $tag->update([
-                'name'=>request()->name
-            ]);
+
             session()->flash('success','Upadated Tag Successfuly');
-            return redirect(route('tags.index'));
+            return abort(404);
         }
 
         /**
@@ -83,11 +82,11 @@ class adminController extends Controller
          * @param  int  $id
          * @return \Illuminate\Http\Response
          */
-        public function destroy(Tag $tag)
+        public function destroy($id)
         {
             //
-            $tag->delete();
-            return redirect(route('tags.index'));
+            // return redirect(route('tags.index'));
+            return abort(404);
         }
 
         public function updateRole($user_id,$role_id=null)

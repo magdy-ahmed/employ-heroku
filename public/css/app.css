@@ -56,14 +56,28 @@ nav {
   padding-right: 1rem;
 }
 
+.dropdown-item {
+  text-align: right !important;
+}
+
+.app-absolute-lt {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.app-border-l {
+  border-left: 1px solid #ccc !important;
+}
+
 @media screen and (min-width: 768px) {
   .navbar-expand-md .navbar-nav {
     margin-right: 0px !important;
   }
 }
 .modal-header .close {
-  padding: 1rem 1rem;
-  margin: -1rem auto -1rem -1rem;
+  padding: unset !important;
+  margin: unset !important;
 }
 
 .fa-exclamation-triangle {
@@ -143,10 +157,12 @@ nav {
   margin-right: 12px;
 }
 .app-label span {
-  font-size: 13px;
   margin-right: 10px;
   font-weight: unset;
   color: #a36a6a;
+}
+.app-label.text-center {
+  margin-right: unset;
 }
 
 .app-header {
@@ -156,8 +172,8 @@ nav {
   text-shadow: 1px 0px 1px #4dc0b5;
 }
 
-.submit {
-  display: block;
+.submit, .app-submit {
+  display: block !important;
   margin: auto;
   width: 50%;
 }
@@ -170,6 +186,138 @@ nav {
   font-weight: bolder;
 }
 
+.app-card {
+  padding: 10px;
+  min-width: unset;
+  margin: unset;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+}
+.app-card .app-card-header {
+  display: inline-block;
+  width: 180px;
+  padding-right: 16px;
+  margin-right: 3%;
+  font-weight: bolder;
+  color: #2a2727;
+  border-radius: 10px;
+}
+
+.app-unset.card-body {
+  padding: 2px;
+}
+
+.app-tringal {
+  position: absolute;
+  left: 0px;
+  width: 0px;
+  height: 0;
+  border-bottom: 117px solid transparent;
+  /* border-top: 50px solid transparent; */
+  border-left: 113px solid #616161;
+  margin-top: -3px;
+}
+
+.app-tringal-right {
+  position: absolute;
+  right: 0px;
+  width: 0px;
+  height: 0;
+  border-bottom: 117px solid transparent;
+  border-right: 113px solid #616161;
+  margin-top: -3px;
+}
+
+.discount {
+  text-decoration: line-through;
+}
+
+.app-absolute-lb {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.list-group {
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
+.list-group-item {
+  padding: 0px !important;
+}
+
+.app-empty {
+  margin: 0;
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  font-size: 30px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 3px black;
+}
+
+.app-shadow-3 {
+  text-shadow: 0 0 3px black;
+}
+
+.app-w {
+  width: 140px;
+}
+
+.profile-img-card {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 3px black;
+  vertical-align: middle;
+  border-style: none;
+  border: 0px solid;
+  border-radius: 50%;
+}
+
+.app-list-child-c {
+  border-left: 1px solid #ccc;
+  padding: 10px !important;
+}
+
+.breadcrumb {
+  direction: ltr;
+  justify-content: end;
+}
+
+.app-un-decoration {
+  text-decoration: none !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .app-label {
+    font-size: 15px;
+  }
+  .app-label span {
+    font-size: 10px;
+  }
+
+  .app-absolute-lb, .app-absolute-lt {
+    position: relative;
+  }
+
+  .app-list.list-group-horizontal {
+    flex-direction: column !important;
+  }
+  .app-list.list-group-horizontal .app-list-child {
+    justify-content: center;
+  }
+  .app-list.list-group-horizontal .app-list-child img {
+    display: block;
+    margin: auto;
+  }
+}
 .admin-users {
   display: block;
   overflow-x: auto;
@@ -207,6 +355,9 @@ nav {
   .app-profile .row > div:first-child {
     padding-left: 25px;
   }
+}
+.app-profile .app-label span {
+  font-size: 13px;
 }
 .app-profile > div:first-child {
   margin: auto;
@@ -249,19 +400,25 @@ nav {
   border-radius: 50%;
   box-shadow: 1px 2px 1px #00000085;
 }
-.app-profile .app-details .label-img:hover:after {
-  content: "تغيير الصورة";
+.card .delete {
   position: absolute;
-  /* top: 0; */
-  right: 49px;
-  bottom: 18px;
-  background: white;
-  border: 1px dashed #0000ff30;
-  border-radius: 15px;
-  padding-right: 5px;
-  padding-left: 5px;
-  padding-bottom: 2px;
-  background-color: #616161;
-  color: white;
-  left: -55px;
+  left: 12px;
+  margin-top: 10px;
+}
+.card .show {
+  position: absolute;
+  right: 12px;
+  margin-top: 10px;
+}
+
+.card-place a:hover {
+  text-decoration: none;
+}
+
+.app-home-service img {
+  width: 180px;
+  height: 180px;
+}
+.app-home-service .sellery::after {
+  content: "جنية";
 }

@@ -15,23 +15,26 @@ class RoleMiddleware
      * @return mixed
      */
 
-    public function handle(Request $request, Closure $next, $role, $permission = null)
+    public function handle(Request $request, Closure $next, $role=null, $permission = null)
         {
-            if($request->user()==null) {
-
+            if($role == null && $permission ==null ){
                 abort(404);
+            }elseif(!$role == null){
+                if($request->user()==null) {
 
-           }
-            if(!$request->user()->hasRole($role)) {
+                    abort(404);
+               }
+                if(!$request->user()->hasRole($role)) {
+                     abort(404);
+                }
 
-                 abort(404);
+                if($permission !== null && !$request->user()->can($permission)) {
+
+                      abort(404);
+                }
 
             }
 
-            if($permission !== null && !$request->user()->can($permission)) {
-
-                  abort(404);
-            }
 
             return $next($request);
 

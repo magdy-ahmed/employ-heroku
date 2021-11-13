@@ -35,7 +35,7 @@
                             {{ __('أدارة الموقع') }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAdmin">
-                            <a class="dropdown-item" href="{{ route('admin.index') }}">
+                            <a class="dropdown-item" href="{{ route('dash-board.index') }}">
                                 {{ __('الرئيسية') }}
                             </a>
                             <a class="dropdown-item" href="{{ route('users.index') }}">
@@ -44,12 +44,48 @@
                             <a class="dropdown-item" href="{{ route('categories.index') }}">
                                 {{ __('الوظائف') }}
                             </a>
-                            {{-- <a class="dropdown-item" href="{{ route('profile.index') }}">
-                                {{ __('الوظائف') }}
-                            </a> --}}
                         </div>
                     </li>
                     @endrole
+                    @can("sell")
+                     <li class="nav-item dropdown">
+                        <a id="navbarDropdownAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ __('أدارة الخدمات') }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAdmin">
+                            <a class="dropdown-item" href="{{ route('seller-place.index') }}">
+                                {{ __('المنشأت') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('seller-place.create') }}">
+                                {{ __('أضافة منشئة') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('seller-service.index') }}">
+                                {{ __('الخدمات') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('seller-service.create') }}">
+                                {{ __('أضافة خدمة') }}
+                            </a>
+                        </div>
+                    </li>
+                    @endcan
+                    @can("market")
+                     <li class="nav-item dropdown">
+                        <a id="navbarDropdownAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ __('أدارة التسويق') }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAdmin">
+                            <a class="dropdown-item" href="{{ route('marketing-affiliate.index') }}">
+                                {{ __('روابطى') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('marketing-affiliate.create') }}">
+                                {{ __('أنشاء رابط') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('marketing-affiliate.about') }}">
+                                {{ __('شرح نظام التسويق') }}
+                            </a>
+                        </div>
+                    </li>
+                    @endcan
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}

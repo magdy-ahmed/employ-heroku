@@ -47,11 +47,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'max:50','unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,18 +65,45 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // dd($data['phone']);
         $user = User::create([
+            'phone' => $data['phone'],
             'name' => $data['name'],
-            'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        DB::table('users_roles')->insert([
-            'user_id' => $user->id,
-            'role_id' => 4
-        ]);
-        DB::table('profiles')->insert([
-            'user_id' => $user->id
-        ]);
+        if($data['role']==='user'){
+            DB::table('users_roles')->insert([
+                'user_id' => $user->id,
+                'role_id' => 4
+            ]);
+        }elseif($data['role']==='market'){
+            DB::table('users_roles')->insert([
+                'user_id' => $user->id,
+                'role_id' => 2
+            ]);
+            DB::table('profiles')->insert([
+                'user_id' => $user->id
+            ]);
+
+        }elseif($data['role']==='seller'){
+            DB::table('users_roles')->insert([
+                'user_id' => $user->id,
+                'role_id' => 3
+            ]);
+            DB::table('profiles')->insert([
+                'user_id' => $user->id
+            ]);
+
+        }elseif($data['role']==='market&seller'){
+            DB::table('users_roles')->insert([
+                'user_id' => $user->id,
+                'role_id' => 5
+            ]);
+            DB::table('profiles')->insert([
+                'user_id' => $user->id
+            ]);
+
+        }
 
         return $user;
     }

@@ -7,6 +7,7 @@
 <div class="app-header">
  تعديل الملف الشخصى
 </div>
+
 <form method="POST" autocomplete="off"  enctype="multipart/form-data" action="{{ route('profile.update') }}">
     @csrf
     @method('PUT')
@@ -37,9 +38,9 @@
         @endif
         @if (isset($categories))
             @foreach ( $categories as $category )
-                @if ($category->id !=$profile->category->id)
+                {{-- @if ($category->id !=$profile->category->id) --}}
                     <option value="{{$category->id}}">{{$category->name}}</option>
-                @endif
+                {{-- @endif --}}
 
             @endforeach
         @endif

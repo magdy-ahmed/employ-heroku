@@ -20,11 +20,12 @@ class CreatePlacesTable extends Migration
             $table->string('excerpt',250)->nullable();
             $table->timeTz('openAt', $precision = 0)->nullable();
             $table->timeTz('closeAt', $precision = 0)->nullable();
-            $table->jsonb('daysClose')->nullable();
+            $table->string('daysClose')->nullable();
             $table->string('country',50)->nullable();
             $table->string('city',50)->nullable();
             $table->string('location')->nullable();
             $table->string('address')->nullable();
+            $table->string('phone')->nullable();
             $table->string('img',200)->nullable();
             $table->boolean('status')->default(true);
             $table->unsignedInteger('user_id');

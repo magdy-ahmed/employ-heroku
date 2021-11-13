@@ -1,17 +1,21 @@
 <div class="text-center" >
     <div class="card app-details">
-        <div class="card-header text-center">
+        <div class="card-header text-center"  >
+        @if (Request::route('id') === null)
             <a href="{{route('profile.edit')}}">  بيانات المسخدم<i class="fas fa-pencil-alt"></i></a>
+        @else
+            <span>  بيانات المسخدم</span>
+        @endif
         </div>
         <div class="card-body ">
             <div class="container">
                 <div class="row">
                     <div class="label-img col-xl-3 text-center" >
-                        <form id="form-img" method="POST" enctype="multipart/form-data" action="{{ route('profile.updateImg') }}">
+                        <form id="form-img"  method="POST" enctype="multipart/form-data" action="{{ route('profile.updateImg') }}">
                             @csrf
                             @method('PUT')
                              <label  for="img">
-                                <img  width="90px" height="90px" src="{{ asset(isset($profile->img) ? 'storage/'.$profile->img: 'storage/basick/profile.png')}}"/>
+                                <img data-toggle="tooltip"  title="تغيير" data-placement="left"  width="90px" height="90px" src="{{ asset(isset($profile->img) ? 'storage/'.$profile->img: 'storage/basick/profile.png')}}"/>
                              <label>
                             <input type="file" class="d-none"   accept="image/*" name='img'  id="img" aria-describedby="img"
                                 onchange="event.preventDefault();

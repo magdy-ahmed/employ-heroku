@@ -33,7 +33,7 @@
         <h5 class="card-title text-center text-info bolder">{{ $service->place->name }}</h5>
         <div class="row justify-content-center">
             <img
-             src="{{ asset(isset($service->img) ? 'storage/'.$service->img: 'storage/basick/service.png')}}"
+             src="{{ asset(isset($service->img) ? 'storage/'.$service->img: 'storage/basick/place.png')}}"
                 class="card-img-top  col-6" alt={{$service->title}}>
             <div class="card-body col-12">
                 {{ $service->excerpt }}

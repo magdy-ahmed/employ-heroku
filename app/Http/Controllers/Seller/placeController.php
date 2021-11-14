@@ -97,13 +97,15 @@ class placeController extends Controller
     public function update($id,placeRequest $request )
     {
         $requestData = $request->all();
+        $img = $requestData['img'];
         if($request->img){
-            $img_old = Place::where('user_id','=',Auth::id())->get()->all()[0]->img;
-            if($img_old){
+            $img_old = Place::where('user_id','=',Auth::id())->first()->img;
+        if($img_old){
                 Storage::disk('public')->delete($img_old);
             }
             $img = $request->img->store('images-place','public');
         }
+        $requestData['img'] = $img;
         $requestData['status'] = filter_var( $request->status, FILTER_VALIDATE_BOOLEAN);
         if($request->daysClose !==null){
             $requestData['daysClose'] = implode(',', $request->daysClose);

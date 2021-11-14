@@ -17,7 +17,7 @@
             <a class="d-inline app-un-decoration" href="{{ route("marketing-affiliate.create") }}">
             <div class="btn btn-primary btn-sm"> رابط جديد </div>
             </a>
-            <form class="d-inline" action="{{ route("marketing-affiliate.destroy",$affiliate->id) }}">
+            <form class="d-inline" action="{{ route("marketing-affiliate.destroy",$affiliate->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger btn-sm"> حذف </button>

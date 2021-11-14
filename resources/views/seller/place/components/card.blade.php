@@ -18,12 +18,12 @@
             <div class="col-6">
                 <div><span class="bolder"> حــالة المـنشئة </span><span> </span></div>
                 <div><span class="bolder"> عدد الخــدمات </span><span> </span></div>
-                <div><span class="bolder"> عدد الطلبــات </span><span> </span></div>
+                {{-- <div><span class="bolder"> عدد الطلبــات </span><span> </span></div> --}}
             </div>
             <div class="col-6">
                 <div><span class="bolder"> عدد الأعجـبات </span><span> </span></div>
                 <div><span class="bolder"> عدد التقـيمات </span><span> </span></div>
-                <div><span class="bolder"> عدد التعليقات </span><span> </span></div>
+                {{-- <div><span class="bolder"> عدد التعليقات </span><span> </span></div> --}}
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
                 تعديل<i class="fas fa-pencil-alt"></i>
             </button>
         </a>
-        <form method="POST" class=" " action="{{route('seller-place.destroy',$place->id)}}">
+        <form method="POST" class=" " action="{{route('seller-place.destroy',$place->id)}}" method="POST">
             @csrf
             @method('DELETE')
             <button class="btn text-danger  btn-dark btn-sm">

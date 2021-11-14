@@ -80,10 +80,14 @@ class affiliateController extends Controller
     public function destroy($id)
     {
         Affiliate::find($id)->delete();
+        return redirect(route('marketing-affiliate.index'));
 
     }
     public function redirect($affiliate_tag){
         $afilliate = Affiliate::where('tag',$affiliate_tag)->first();
+        if($afilliate ==null){
+            abort(404);
+        }
         return redirect($afilliate->referral);
     }
     public function about(){

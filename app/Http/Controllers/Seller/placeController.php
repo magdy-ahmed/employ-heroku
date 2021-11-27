@@ -22,7 +22,8 @@ class placeController extends Controller
     {
         //
         $user = Auth::user();
-        return view('seller.place.index',['places'=>$user->places]);
+        $places = $user->places()->paginate(20);
+        return view('seller.place.index',compact('places'));
 
     }
 
@@ -71,6 +72,9 @@ class placeController extends Controller
     public function show($id)
     {
         $place = Place::find($id);
+        if($place === null){
+            abort(404);
+        }
         return view('seller.place.show',compact('place'));
     }
 
@@ -83,6 +87,9 @@ class placeController extends Controller
     public function edit($id)
     {
         $place = Place::find($id);
+        if($place === null){
+            abort(404);
+        }
         $place->daysClose = explode(',',$place->daysClose);
         return view('seller.place.create',compact('place'));
     }

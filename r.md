@@ -12,7 +12,13 @@ php artisan storage:link
  curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 ASSET_URL=public 
 ln -s /path/to/laravel/storage/app/public /path/to/public/storage
-
+php artisan db:seed --class=StudentSeeder
+    public function run()
+    {
+        $this->call([
+            StudentSeeder::class
+        ]);
+    }
 
 <VirtualHost *:80>
      ServerName laravelht.vn

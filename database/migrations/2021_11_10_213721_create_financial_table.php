@@ -21,11 +21,14 @@ class CreateFinancialTable extends Migration
             $table->float('amount');
             $table->string('type');
             $table->unsignedInteger('order_id')->nullable();
-            $table->unsignedInteger('affiliate_id')->nullable();
+            $table->unsignedInteger('marketing_id')->nullable();
+            $table->unsignedInteger('service_id')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('set null');
-            $table->foreign('affiliate_id')->references('id')->on('affiliate')->onDelete('set null');
+            $table->foreign('marketing_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('set null');
+
         });
     }
 

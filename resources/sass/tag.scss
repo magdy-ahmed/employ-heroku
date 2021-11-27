@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+  }
+  :root {
+    --tag-color-one: #e0fbf6;
+    --tag-color-text-one: #58c2a9;
+    --tag-color-two: #ece7fe;
+    --tag-color-text-two: #8972f3;
+    --tag-color-three: #fde7ea;
+    --tag-color-text-three: #e77f89;
+    --tag-color-four: #f7f8fc;
+    --tag-color-text-four: #a0a6b5;
+  }
+
+
+  .tag {
+    font-size: 15px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    &.approved {
+      background-color: var(--tag-color-one);
+      color: var(--tag-color-text-one);
+    }
+
+    &.app-progress {
+      background-color: var(--tag-color-two);
+      color: var(--tag-color-text-two);
+    }
+
+    &.review {
+      background-color: var(--tag-color-three);
+      color: var(--tag-color-text-three);
+    }
+
+    &.waiting {
+      background-color: var(--tag-color-four);
+      color: var(--tag-color-text-four);
+    }
+  }
+  @media screen and (max-width: 900px) {
+
+  }
+
+  @media screen and (max-width: 700px) {
+
+  }
+
+  @media screen and (max-width: 520px) {
+
+  }

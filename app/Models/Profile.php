@@ -14,7 +14,7 @@ class Profile extends Model
     // use HasTrixRichText;
 
     // protected $guarded = [];
-    protected $fillable = ['content','img','title','slug'];
+    protected $fillable = ['content','img','title','slug','code'];
     public function user(){
         return $this->hasOne(User::class, 'id','user_id');
     }

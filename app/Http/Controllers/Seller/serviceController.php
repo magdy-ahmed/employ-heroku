@@ -21,8 +21,8 @@ class serviceController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        return view('seller.service.index',['services'=>$user->services]);
+        $services = Auth::user()->services()->paginate(20);
+        return view('seller.service.index',compact('services'));
 
     }
 
@@ -74,6 +74,9 @@ class serviceController extends Controller
     public function show($id)
     {
         $service = Service::find($id);
+        if($service === null){
+            abort(404);
+        }
         return view('seller.service.show',compact('service'));
     }
 
@@ -85,14 +88,16 @@ class serviceController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user();
+        $user   = Auth::user();
         $places = $user->places;
-
         if(count($places) === 0 ){
             session()->flash("info","يجب أضافة منشئة واحدة على الأقل لأضافة خدمة ");
             return redirect(route('seller-place.create'));
         }
         $service = Service::find($id);
+        if($service === null){
+            abort(404);
+        }
         return view('seller.service.create',['service'=>$service,'places'=>$places]);
     }
 
@@ -107,16 +112,15 @@ class serviceController extends Controller
     {
         $requestData = $request->all();
         if($request->img){
-            $img_old = Service::where('user_id','=',Auth::id())->get()->all()[0]->img;
-            if($img_old){
+            $img_old = Service::find($id)->img;
+        if($img_old){
                 Storage::disk('public')->delete($img_old);
             }
-
-            $img = $request->img->store('images-profile','public');
-
+            $img = $request->img->store('images-service','public');
         }
-        $requestData['status'] = filter_var( $request->status, FILTER_VALIDATE_BOOLEAN);
+        $requestData['status']   = filter_var( $request->status, FILTER_VALIDATE_BOOLEAN);
         $requestData['place_id'] = $request->place;
+        $requestData['img']      = $img;
         $service = Service::find($id);
         $service->update($requestData);
 
@@ -132,7 +136,7 @@ class serviceController extends Controller
     public function destroy($id)
     {
         $service = Service::find($id);
-        $img = $service->img;
+        $img     = $service->img;
         $service->delete();
         Storage::disk('public')->delete($service->img);
         return redirect(route('seller-service.index'));

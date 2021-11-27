@@ -124,3 +124,241 @@
     }
 
 }
+
+.sellery{
+    &::after{
+        content: "جنية";
+    }
+}
+.mraketing-user{
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    h4{
+        color: $colorMedium;
+        font-weight: bolder;
+        font-size: 25px;
+    }
+    .price,.username{
+        color: $colorPrimary;
+        font-size: 25px;
+    }
+    .usernam{
+
+    }
+}
+.price::after{
+    content: "جنية";
+}
+@media only screen and (max-width:768px) {
+    .mraketing-user{
+        .card-body{
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            padding-top: 5px !important;
+            padding-bottom: 5px !important;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 0px solid;
+            border-radius: 50%;
+        }
+        h4,.price,.username{
+            font-size: 13px;
+        }
+    }
+}
+@media only screen and (max-width:300px) {
+    .mraketing-user{
+        .card-body{
+
+        }
+        img{
+
+        }
+        h4,.price,.username{
+            font-size: 10px;
+        }
+    }
+
+}
+.app-notification{
+    width: 50%;
+    padding: 15px;
+    position: fixed;
+    z-index: 100000;
+    top:0px;
+    background-color: white;
+    height: 350px;
+    border: 0px solid;
+    margin-left: 20px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    overflow-y: auto;
+    overflow-x: clip;
+    .card-body{
+        word-break: break-all;
+    }
+    .footer{
+        bottom: 0px;
+        width: 100%;
+        position: fixed;
+        top: 320px;
+        height: 30px;
+        width: 50%;
+        margin-left: -15px;
+        border-bottom-left-radius: 25px;
+    }
+}
+@media only screen and(max-width:768px){
+    .app-notification{
+        width: 90% ;
+        .card-body{
+        }
+        .footer{
+            width: 90% ;
+        }
+    }
+}
+.chat-icon{
+    padding: 5px;
+    margin: 14px;
+    color: $colorDanger;
+    position: absolute;
+    margin-top: 20px;
+    &:hover{
+        color: #b34c4c;
+    }
+    i{
+        font-size: 25px;
+
+    }
+}
+.pagination{
+    padding-right: 0px;
+}
+.messages-user{
+    .side-menu{
+        border: 0px solid;
+        width: 50%;
+        overflow-y: auto;
+        position: absolute;
+        border-radius: 0px;
+        // right: -26px;
+        max-height: 90vh;
+        top: 57px;
+        z-index: 10000;
+    .services{
+        height: 90vh;
+
+    }
+    }
+
+    .app-show:hover{
+        text-decoration: none ;
+       }
+
+
+}
+.form-chat{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 500;
+    textarea{
+        width: 100%;
+
+    }
+    button{
+        position: fixed;
+        left: 10px;
+        bottom: 10px;
+        z-index: 510;
+        padding: 6px;
+        font-weight: bolder;
+    }
+}
+.messages {
+    height: 57vh;
+
+    background-color: #868686;
+    overflow-y: auto;
+    .service-user-img{
+        width: 80px;
+        height: 80px;
+        border: 0px solid;
+        border-radius: 50%;
+    }
+    .service-user-name{
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .user-card{
+        border: 1px solid;
+        border-radius: 20px;
+        box-shadow: 0px 0px 28px white;
+
+    }
+    .tag{
+        width: fit-content;
+    }
+
+}
+@media only screen and(max-width:768px){
+    .messages-user{
+        .side-menu{
+            border: 0px solid;
+            width: 85%;
+            .services{
+                height: 90vh;
+
+            }
+            .service{
+                text-align: center !important;
+            }
+        }
+
+    }
+    .tag.user{
+        position: relative !important;
+        display: block;
+    }
+    .count-notification{
+
+    }
+    .notificaion-icon{
+        top:7px;
+    }
+}
+
+.collapse{
+    position: relative !important;
+}
+.count-notification{
+    position: absolute;
+    background-color: red;
+    padding: 3px;
+    border: 0px solid;
+    border-radius: 50%;
+    font-size: 15px;
+    left: 110px;
+    opacity: .85;
+    margin-top: 9px;
+    z-index: 100;
+    font-weight: bolder;
+}
+.notificaion-icon{
+    position: absolute;
+    font-size: 30px;
+    left: 100px;
+    z-index: 100;
+}
+.messages-icon{
+    @extend .notificaion-icon;
+    left: 150px;
+}

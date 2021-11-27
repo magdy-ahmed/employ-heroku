@@ -45,3 +45,31 @@ for (var i=0; i<selectobject.length; i++) {
         selectobject.remove(i);
 }
 
+
+    jQuery(document).ready(function(){
+       jQuery('#ajaxSubmit').click(function(e){
+          e.preventDefault();
+          $.ajaxSetup({
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+             }
+         });
+           jQuery.ajax({
+             url: "{{ url('/services-favorite/') }}"+1,
+             method: 'post',
+             data: {
+//                   name: jQuery('#name').val(),
+//                     type: jQuery('#type').val(),
+//                 price: jQuery('#price').val()
+             },
+             success: function(result){
+                console.log(result);
+             }});
+          });
+       });
+       parseInt(document.getElementById('jj').value)
+       function maxLengthCheck(object)
+       {
+           if (object.value > object.maxLength)
+           object.value = object.value.slice(0, object.maxLength)
+       }

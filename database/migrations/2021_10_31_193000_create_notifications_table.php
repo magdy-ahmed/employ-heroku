@@ -18,9 +18,11 @@ class CreateNotificationsTable extends Migration
             $table->string('name');
             $table->text('content');
             $table->enum('type',['user','now-role','buy-role','sale-role','welcome-role']);
-            $table->integer('user_id')->nullable();
-            $table->integer('user_role')->nullable();
+            $table->unsignedInteger('user_id')->nullable();
+            $table->unsignedInteger('role_id')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
         });
     }
 

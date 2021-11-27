@@ -9,7 +9,10 @@ use Illuminate\Support\Str;
 use App\Models\Affiliate;
 use App\Models\User;
 use App\Models\Setting;
+use App\Models\Profile;
 use App\Http\Requests\affiliateRequest;
+
+use App\Http\Requests\codeRequest;
 use Illuminate\Support\Facades\Route;
 
 class affiliateController extends Controller
@@ -21,9 +24,20 @@ class affiliateController extends Controller
      */
     public function index()
     {
-        $affiliates = Auth::user()->affiliates;
-        // dd($affiliates);
-        return view('marketing.affiliate.index',compact('affiliates'));
+        $code = Auth::user()->profile->code;
+        if(!$code){
+            do{
+                $rand = rand(100000000,999999999);
+                $query = Profile::where('code','=', "$rand")->first();
+
+            }while($query !== null);
+            Auth::user()->profile->update([
+                "code"      => $rand
+            ]);
+            $code = $rand;
+        }
+        $affiliates = Auth::user()->affiliates()->paginate(20);
+        return view('marketing.affiliate.index',compact('affiliates','code'));
     }
 
     /**
@@ -93,8 +107,29 @@ class affiliateController extends Controller
     public function about(){
         return view('marketing.affiliate.about');
     }
+    public function join(codeRequest $request){
+        $query = Profile::where('code','like',$request->code)->first();
+        if(!$query){
+            session()->flash('error','تحقق من الكود التسويقى هذا الكود غير مسجل');
+            return back()->withInput();
+        }
+        $id = $query->id;
+        if($id === Auth::id()){
+            session()->flash('error','لا يمكنك الأنضمام بالكود التسويقى التابع لك');
+            return back()->withInput();
+        }
+        Auth::user()->update([
+            "user_id"=>$id
+        ]);
+        $marketing = $query->user;
+        return redirect(route('profile.index'));
+    }
     public function setCookies(){
         return abort(404);
+    }
+    public function sellersIndex(){
+        $sellers = Auth::user()->selers;
+        return view('marketing.affiliate.sellers',compact('sellers'));
     }
     public function show($id)
     {

@@ -18,6 +18,7 @@ class CreateProfilesTable extends Migration
             $table->string('title',200)->nullable();
             $table->string('slug',200)->nullable();
             $table->longText('content')->nullable();
+            $table->longText('code')->nullable()->unique();
             $table->string('img',200)->nullable();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('category_id')->nullable();

@@ -1,5 +1,5 @@
 
-<li class="list-group-item  m-2 ">
+<li class="list-group-item  m-2">
 <ul class="list-group app-list list-group-horizontal app-border-l">
 
   <li class="list-group-item app-list-child p-3"><img
@@ -16,7 +16,7 @@
 
         </h5>
     </a>
-    <p>
+    <p class="wrap-break">
         {{ $service->excerpt }}
     </p>
     <div class="app-absolute-lb mb-3 ">

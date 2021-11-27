@@ -13,5 +13,8 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        "/services-favorit/*",
+        "/messages-read/*",
+        "/notification-read/*"
     ];
 }

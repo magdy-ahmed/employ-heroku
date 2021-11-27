@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
-/*!
+/*
  * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
@@ -12247,7 +12247,9 @@ a.close.disabled {
 .bg-primary {
   background-color: #007bff !important;
 }
-
+.bg-nav {
+    background-color: #C00100 !important;
+}
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {

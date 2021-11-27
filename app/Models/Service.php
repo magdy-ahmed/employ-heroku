@@ -35,4 +35,27 @@ class Service extends Model
     public function category(){
         return $this->hasOne(Category::class,'user_id','user_id');
     }
+    public function messages(){
+        return $this->hasMany(Chat::class,'service_id','id');
+    }
+    public function messages_users(){
+        return User::whereIn('id',$this->messages()->groupBy('user_id')->pluck('user_id')->all())->get();
+    }
+    public function is_read(){
+
+        $data = $this->messages()->orderBy('created_at','DESC')->pluck('is_read');
+
+        if($data->isEmpty()){
+            return  true;
+
+        }else{
+            if($data->contains("0")){
+                return false;
+            }else{
+                return true;
+            }
+
+        }
+    }
+
 }

@@ -1,20 +1,39 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
+<nav class="navbar bg-nav navbar-expand-md navbar-light  shadow-sm">
+    <div class="container ">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
+        @auth
+            @if (\App\Models\Notification::countNotification()!==0)
+                <span class="count-notification">{{\App\Models\Notification::countNotification()}}</span>
+
+            @endif
+            <a class="notificaion-icon" href="#"
+                onclick="event.preventDefault();sendRequestReadNotfications(5);show(this);"  target="app-notification-page">
+                <i class="fas fa-bell"></i>
+            </a>
+        @endauth
+
+
+        @can("sell")
+            <a class="messages-icon " href="{{ route('chat.seller.index') }}">
+                <i class="fas fa-envelope"></i>
+            </a>
+        @endcan
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse   text-right" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
 
-            </ul>
+
+
+
+
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav  ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -43,6 +62,12 @@
                             </a>
                             <a class="dropdown-item" href="{{ route('categories.index') }}">
                                 {{ __('الوظائف') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('admin.notification.index') }}">
+                                {{ __('مركز الأشعارات') }}
+                            </a>
+                            <a class="dropdown-item" href="{{ route('admin.setting.index') }}">
+                                {{ __('أعدات الموقع') }}
                             </a>
                         </div>
                     </li>
@@ -80,6 +105,9 @@
                             <a class="dropdown-item" href="{{ route('marketing-affiliate.create') }}">
                                 {{ __('أنشاء رابط') }}
                             </a>
+                            <a class="dropdown-item" href="{{ route('marketing-affiliate.sellers') }}">
+                                {{ __('فريقى التسويقى') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('marketing-affiliate.about') }}">
                                 {{ __('شرح نظام التسويق') }}
                             </a>
@@ -96,6 +124,14 @@
                             <a class="dropdown-item" href="{{ route('profile.index') }}">
                                 {{ __('الملف الشخصى') }}
                             </a>
+
+                            <a class="dropdown-item" href="#"
+                            onclick="event.preventDefault();show(this);"  target="app-notification-page">
+                                الأشعارات
+                            </a>
+                            <a class="dropdown-item" href="{{ route('financial.index') }}">
+                                {{ __('المعاملات المالية') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -110,7 +146,13 @@
                         </div>
                     </li>
                 @endguest
+
             </ul>
+
         </div>
+
     </div>
+
 </nav>
+
+

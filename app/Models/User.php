@@ -22,7 +22,8 @@ class User extends Authenticatable
         'name',
         'phone',
         'password',
-        'profile_id'
+        'profile_id',
+        'user_id'
 
     ];
 
@@ -63,5 +64,37 @@ class User extends Authenticatable
     }
     public function affiliates(){
         return $this->hasMany(Affiliate::class,'user_id','id');
+    }
+    public function favorites(){
+        return $this->belongsToMany(Service::class,'user_favorite');
+    }
+    public function selers() {
+        return $this->hasMany(self::class,'user_id','id');
+    }
+    public function financial() {
+        return $this->hasMany(Financial::class,'user_id','id');
+    }
+    public function marketing() {
+        return $this->belongsTo(self::class,'user_id','id');
+    }
+    public function messagesFor() {
+        return $this->hasMany(Chat::class,'for_user_id','id');
+    }
+    public function messages(){
+        return $this->hasMany(Chat::class,'user_id','id');
+    }
+    public function is_read($service_id){
+        $data = $this->messages()->where('service_id','=',$service_id)->orderBy('created_at','DESC')->pluck('is_read');
+        if($data->isEmpty()){
+            return  true;
+
+        }else{
+            if($data->contains("0")){
+                return false;
+            }else{
+                return true;
+            }
+
+        }
     }
 }

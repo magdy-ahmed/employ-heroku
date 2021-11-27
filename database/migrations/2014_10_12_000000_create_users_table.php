@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('phone_verified_at')->nullable();
             $table->string('password');
             $table->string('type')->default('user');
-            $table->string('status')->nullable();
+            $table->string('user_id')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

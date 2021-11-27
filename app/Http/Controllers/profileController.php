@@ -14,15 +14,20 @@ class profileController extends Controller
 {
     public function index(){
         $user = Auth::user();
+        $marketing = $user->marketing;
+        // dd($marketing);
         if($user->profile===null){
             abort(404);
         }
-        return view('profiles.index',['profile'=>$user->profile,'categories'=>Category::all()]);
+
+        $profile = $user->profile ;
+        $categories = Category::all();
+        return view('profiles.index',compact('marketing','profile','categories'));
     }
     public function show($id)
     {
         $user = User::find($id);
-        if(!$user){
+        if($user === null){
             return abort(404);
         }
         if($user->profile===null){

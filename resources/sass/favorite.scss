@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display&family=Montserrat&display=swap");
+
+// Colors
+$primary-color: #ffc1c1;
+$dark-primary-color: #c5b3a3;
+$secondary-color: #b34c4c;
+$dark-secondary-color: #700018;
+$white-color: #f0f0f2;
+$dislike-color: #b71c1c;
+$like-color: $secondary-color;
+
+// Typos
+$main-typo: Montserrat, sans-serif;
+$accent-typo: "Playfair Display", serif;
+$special-typo: "Dancing Script", cursive;
+
+// Settings
+$menu-size: 18em;
+$card-width: 15em;
+$perspective: 1000px;
+
+.card {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  border-radius: 25px;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+
+  &_favorited {
+    transform-origin: 0.5em 0.5em;
+
+    &::after {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+
+  &_hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.5);
+  }
+
+  &__image {
+    border-radius: 25px 25px 0 0;
+    &_loaded > img {
+      opacity: 1;
+    }
+  }
+
+  &__choice {
+    button {
+      font-size: 0.9em;
+      $size: 3em;
+      background-color: $dark-secondary-color;
+      width: $size;
+      height: $size;
+      border: none;
+      border-radius: calc(#{$size} / 2);
+      padding: 0.3em 0 0 0;
+      margin: 1em;
+      cursor: pointer;
+
+      & svg {
+        width: 1.3em;
+        height: 1.3em;
+        fill: $primary-color;
+        stroke: $primary-color;
+      }
+
+      &[data-action="dislike"]:hover,
+      &[data-action="dislike"]:focus {
+        background-color: $dislike-color;
+      }
+      &[data-action="like"]:hover,
+      &[data-action="like"]:focus {
+        background-color: $like-color;
+      }
+    }
+  }
+}
+
+.overflowFixForSafari {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}

@@ -42,14 +42,14 @@ class Notification extends Model
         }
          return $time_diff->format($format);
      }
-    public function myNotification(){
+    public static function myNotification(){
         $role_id = Auth::user()->role[0]->id;
         $user_id = Auth::id();
         $notifications = self::orderBy('created_at', 'DESC')->where('role_id','=',$role_id)->
             orWhere('user_id','=',$user_id)->limit(5)->get();
         return $notifications;
     }
-    public function countNotification(){
+    public static function  countNotification(){
         $role_id = Auth::user()->role[0]->id;
         $user_id = Auth::id();
         $notifications = self::orderBy('created_at', 'DESC')->where('user_id','=',$user_id)->where('is_read','=','0')->get()->count();

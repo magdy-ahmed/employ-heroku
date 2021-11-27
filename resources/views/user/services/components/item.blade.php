@@ -39,7 +39,7 @@
         </div>
         <img class="d-block m-auto"
          height="200px" width="200px"
-         src=" {{isset($service->img) ? asset('storage/'.$service->img) : 'storage/basick/service.png'}}" />
+         src=" {{isset($service->img) ? asset('storage/'.$service->img) : asset('storage/basick/service.png')}}" />
         <div class="card-footer h-100 d-block">
 
             <div class="d-flex flex-row bd-highlight ">
